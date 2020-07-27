@@ -1,26 +1,58 @@
-Assignment02
+Lab 2 
 
-This folder contains total 7 files:
+Write a small shell - called shhh - that has the 
+following capabilities:
 
-"file.txt"
-"input.txt"
-"make"
-"pre"
-"shhh.c"
-"sort"
-"readme.txt"
+1. Can execute a command with the accompanying arguments.  
+2. Recognize multiple pipe requests and handle them.  
+3. Recognize redirection requests and handle them.  
+4. Type "exit" to quit the shhh shell.  
 
-after unziping the file, do follow steps to examine the shell program.
+Sample commands:
 
-1. run "./make" to compile shhh.c file.
-2. then run "./shhh" to get into the shell program
-3. input commands:
+shhh>ls 
 
-   ls
-   ls -t -al
-   cat file.txt
-   ls -al > output.txt
-   ls | more | wc
-   ./pre < input.txt | ./sort > output
+shhh>ls -t -al
 
-   NOTE: pre, sort, file.txt and input.txt are already in the foder for test
+shhh>cat file.txt   (file.txt is an existing file)
+
+shhh>ls -al > output.txt
+
+And then open output.txt to see if the content is correct or not
+
+shhh> ls | more | wc
+
+shhh>./pre < input.txt | ./sort > output.txt (./pre and ./sort are the executable from proj1. 
+                                          input.txt is the file that provides the input
+                                          and output.txt is the output file)
+
+shhh> exit
+
+The shell shhh should always wait for ALL the 
+commands to finish. The topology of the forked processes 
+should be linear children; e.g the shell should have 
+as many children as there are processes needed - 
+with pipes connecting adjacent children.You may assume 
+that any redirection in the command 
+is specified like the third example above.  E.g. 
+"redirection in" ( < ) is always specified before 
+the first pipe appears  and "redirection out" ( > ) 
+is always after the last pipe specified. To make 
+life easier for you, you may assume that only 
+commands with correct syntax are typed in.  In other 
+words don't worry about errors in the formation of 
+the commands.
+
+The partial program is available in TRACS, lab2.c.
+The command parsing part is already done in the program. 
+On your part, you need to implement the above functions.
+
+
+Submission:
+
+In order not to lose any files, you'd better zip all your files into a .zip file. 
+
+Submit your project to TRACS before the deadline. Homework will NOT be accepted 
+through emails. You should write a readme textfile telling the grader how to run 
+your programs. Without this file, it is very likely that your project will not be 
+run properly. 
